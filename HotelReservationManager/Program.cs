@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using HotelReservationManager.Data;
 namespace HotelReservationManager
 {
     public class Program
@@ -5,6 +8,13 @@ namespace HotelReservationManager
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+                        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'HotelManagerDbContextConnection' not found.");
+
+                                    builder.Services.AddDbContext<HotelManagerDbContext>(options =>
+                options.UseSqlServer(connectionString));
+
+                                                builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<HotelManagerDbContext>();
 
             // Add services to the container.
             builder.Services.AddRazorPages();
@@ -23,6 +33,7 @@ namespace HotelReservationManager
             app.UseStaticFiles();
 
             app.UseRouting();
+                        app.UseAuthentication();;
 
             app.UseAuthorization();
 
