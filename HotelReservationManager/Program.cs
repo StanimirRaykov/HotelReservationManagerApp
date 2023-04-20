@@ -29,6 +29,7 @@ namespace HotelReservationManager
                 app.UseHsts();
             }
 
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
