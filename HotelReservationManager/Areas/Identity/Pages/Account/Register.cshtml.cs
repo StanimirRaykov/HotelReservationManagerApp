@@ -39,6 +39,8 @@ namespace HotelReservationManager.Areas.Identity.Pages.Account
             _emailSender = emailSender;
         }
 
+        public string Username { get; private set; }
+
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -90,6 +92,11 @@ namespace HotelReservationManager.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
+            [StringLength(10, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 2)]
+            [Display(Name = "UCN")]
+            public string UCN { get; set; }
+
+            [Required]
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -122,7 +129,18 @@ namespace HotelReservationManager.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
+        //private async Task LoadAsync(IdentityUser user)
+        //{
+        //    var userName = await _userManager.GetUserNameAsync(user);
+        //    var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
+        //    Username = userName;
+
+        //    Input = new InputModel
+        //    {
+        //        PhoneNumber = phoneNumber
+        //    };
+        //}
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
@@ -144,12 +162,12 @@ namespace HotelReservationManager.Areas.Identity.Pages.Account
                     FirstName = Input.FirstName,
                     MiddleName = Input.MiddleName,
                     LastName = Input.LastName,
-                    PhoneNumber = Input.PhoneNumber,
+                    UCN = Input.UCN,
                 };
                 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                
+                await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
 
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
