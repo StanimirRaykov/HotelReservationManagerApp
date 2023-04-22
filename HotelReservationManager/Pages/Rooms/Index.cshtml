@@ -1,12 +1,12 @@
 ﻿@page
+@using HotelReservationManager.Enums;
 @model HotelReservationManager.Pages.Rooms.IndexModel
-
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Rooms</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -21,9 +21,6 @@
                 @Html.DisplayNameFor(model => model.Room[0].Type)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room[0].IsTaken)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Room[0].AdultPrice)
             </th>
             <th>
@@ -31,6 +28,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Room[0].RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room[0].IsTaken)
             </th>
             <th></th>
         </tr>
@@ -45,9 +45,6 @@
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsTaken)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.AdultPrice)
             </td>
             <td>
@@ -55,6 +52,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTaken)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.RoomId">Edit</a> |
