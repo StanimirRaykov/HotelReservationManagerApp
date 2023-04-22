@@ -24,7 +24,7 @@ namespace HotelReservationManager.Controllers
         {
               return _context.Clients != null ? 
                           View(await _context.Clients.ToListAsync()) :
-                          Problem("Entity set 'HotelManagerDbContext.ClientData'  is null.");
+                          Problem("Entity set 'HotelManagerDbContext.Client'  is null.");
         }
 
         // GET: Clients/Details/5
