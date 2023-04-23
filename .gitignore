@@ -361,7 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/HotelReservationManager/Areas/Identity/Pages/Account/Register.cshtml.cs
-/HotelReservationManager/Pages/Shared/_Layout.cshtml
-/HotelReservationManager/Views/Clients/Index.cshtml.cs
-/HotelReservationManager/Program.cs
