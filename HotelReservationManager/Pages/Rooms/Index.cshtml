@@ -6,7 +6,7 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Rooms</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -21,16 +21,16 @@
                 @Html.DisplayNameFor(model => model.Room[0].Type)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room[0].IsTaken)
+                Is Taken
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room[0].AdultPrice)
+                Adult Price
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room[0].ChildPrice)
+                Child Price
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room[0].RoomNumber)
+                Room Number
             </th>
             <th></th>
         </tr>
