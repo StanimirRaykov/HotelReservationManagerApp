@@ -20,37 +20,37 @@
                 <input asp-for="Reservation.RoomId" class="form-control" />
                 <span asp-validation-for="Reservation.RoomId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="Reservation.UserId" class="control-label"></label>
                 <input asp-for="Reservation.UserId" class="form-control" />
                 <span asp-validation-for="Reservation.UserId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label asp-for="Reservation.DateOfAccommodation" class="control-label"></label>
                 <input asp-for="Reservation.DateOfAccommodation" class="form-control" />
                 <span asp-validation-for="Reservation.DateOfAccommodation" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label asp-for="Reservation.ReleaseDate" class="control-label"></label>
                 <input asp-for="Reservation.ReleaseDate" class="form-control" />
                 <span asp-validation-for="Reservation.ReleaseDate" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            <div class="form-group form-check mt-3">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Reservation.BreakfastIncluded" /> @Html.DisplayNameFor(model => model.Reservation.BreakfastIncluded)
                 </label>
             </div>
-            <div class="form-group form-check">
+            <div class="form-group form-check mt-3">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Reservation.AllInclusiveIncluded" /> @Html.DisplayNameFor(model => model.Reservation.AllInclusiveIncluded)
                 </label>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label asp-for="Reservation.OwedAmount" class="control-label"></label>
                 <input asp-for="Reservation.OwedAmount" class="form-control" />
                 <span asp-validation-for="Reservation.OwedAmount" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

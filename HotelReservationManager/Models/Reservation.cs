@@ -20,5 +20,7 @@ namespace HotelReservationManager.Models
         public bool AllInclusiveIncluded { get; set; }
 
         public double OwedAmount { get; set; }
+
+        public virtual Room Room { get; set; }
     }
 }
