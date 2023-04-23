@@ -55,7 +55,7 @@ namespace HotelReservationManager.Migrations
 
                     b.HasIndex("ReservationId");
 
-                    b.ToTable("ClientData");
+                    b.ToTable("Clients", (string)null);
                 });
 
             modelBuilder.Entity("HotelReservationManager.Models.Reservation", b =>
@@ -89,7 +89,9 @@ namespace HotelReservationManager.Migrations
 
                     b.HasKey("ReservationId");
 
-                    b.ToTable("Reservations");
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("HotelReservationManager.Models.Room", b =>
@@ -120,7 +122,7 @@ namespace HotelReservationManager.Migrations
 
                     b.HasKey("RoomId");
 
-                    b.ToTable("Rooms");
+                    b.ToTable("Rooms", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -376,6 +378,17 @@ namespace HotelReservationManager.Migrations
                     b.HasOne("HotelReservationManager.Models.Reservation", null)
                         .WithMany("Clients")
                         .HasForeignKey("ReservationId");
+                });
+
+            modelBuilder.Entity("HotelReservationManager.Models.Reservation", b =>
+                {
+                    b.HasOne("HotelReservationManager.Models.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -3,9 +3,11 @@
 {
     public enum RoomType
     {
-        RoomForOne = 1,
-        RoomForTwo = 2,
-        RoomForThree = 3,
-        RomoForFour = 4
+        TwoSingleBeds = 1,
+        TwinBed = 2,
+        Apartment = 3,
+        Penthouse = 4,
+        Maisonette =5,
+
     }
 }
